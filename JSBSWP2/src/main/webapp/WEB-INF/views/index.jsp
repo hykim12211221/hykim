@@ -34,7 +34,7 @@
 			<td id="siteTitleArea2" align="center">
 				<table id="siteTitle">
 					<tr>
-						<td onclick="goHome();">자바 보안코딩 기반 스프링 웹 개발자 양성과정 카페
+						<td onclick="goHome();">자바
 						<span id="resultArea">${result }</span>
 						</td>
 					</tr>
