@@ -34,7 +34,7 @@
 			<td id="siteTitleArea2" align="center">
 				<table id="siteTitle">
 					<tr>
-						<td onclick="goHome();">자바
+						<td onclick="goHome();">자바자바자바잡
 						<span id="resultArea">${result }</span>
 						</td>
 					</tr>
