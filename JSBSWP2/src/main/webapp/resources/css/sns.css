@@ -1,0 +1,158 @@
+@charset "EUC-KR";
+
+#snsWriteArea {
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	width: 100%;
+	transition: all 0.3s ease-out;
+}
+
+#snsWriteTable {
+	width: 1000px;
+	border-spacing: 0px;
+}
+
+#snsWriteTable textarea {
+	border: none;
+	background-color: transparent;
+	width: 800px;
+	height: 100px;
+	font-size: 14pt;
+	font-weight: 800;
+	color: white;
+	padding: 10px;
+}
+
+#snsWriteTable button {
+	color: white;
+	font-size: 17pt;
+	font-weight: 800;
+	background-color: transparent;
+	border: none;
+}
+
+#swtTd1 {
+	border-left: white solid 4px;
+	border-top: white solid 4px;
+	border-bottom: white solid 4px;
+}
+
+#swtTd2 {
+	border-right: white solid 4px;
+	border-top: white solid 4px;
+	border-bottom: white solid 4px;
+}
+
+.aSNSMsg {
+	margin: 30px;
+	font-family: "a";
+	font-weight: 900;
+	width: 90%;
+	background-color: #FFFFFFBF;
+	font-size: 14pt;
+	box-shadow: 0px 0px 30px white;
+}
+
+.aSNSMsg td {
+	padding: 10px;
+}
+
+.asmImgTd {
+	width: 100px;
+}
+
+.asmImgTd img {
+	max-width: 90px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px black;
+}
+
+.asmOwner {
+	font-size: 18pt;
+}
+
+.asmTxt {
+	word-break: break-all;
+}
+
+.aSNSMsg button {
+	border: none;
+	background-color: transparent;
+	font-size: 16pt;
+	font-weight: 900;
+}
+
+.aSNSMsg button:hover {
+	color: white;
+	text-shadow: 0px 0px 7px white;
+}
+
+#snsL {
+	color: white;
+	font-size: 70px;
+	font-weight: 900;
+	position: fixed;
+	top: 50%;
+	left: 150px;
+}
+
+#snsR {
+	color: white;
+	font-size: 70px;
+	font-weight: 900;
+	position: fixed;
+	top: 50%;
+	right: 150px;
+}
+
+#snsIndex {
+	border-spacing: 0px;
+}
+
+#snsIndex input {
+	padding-left: 5px;
+	width: 250px;
+}
+
+#SNSComment {
+	padding-top: 35px;
+	padding-left: 25px;
+	margin-bottom: 1px !important;
+	float: left;
+}
+
+.SNSComment_id {
+	padding-right: 30px;
+}
+
+.SNSComment_txt {
+	width: 500px;
+	background-color: #FFFFFFBF;
+	border: 1px solid #FFFFFFBF;
+}
+
+#SNSComment button {
+	padding-right: 30px;
+	font-size: 13px;
+}
+
+#SNSComment_me {
+	margin-top: 20px;
+	
+}
+
+.SNSComment_com {
+	padding-right: 50px;
+}
+
+.SNSComment_date {
+	font-size: 14px;
+}
+
+#snsWriteHideBtn {
+	cursor: pointer;
+	font-size: 30px;
+	color : white;
+	border: none;
+}

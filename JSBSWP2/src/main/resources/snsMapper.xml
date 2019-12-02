@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kimkim.jsbswp2.sns.SNSMapper">
+	<insert id="writeMsg" parameterType="com.kimkim.jsbswp2.sns.SNSMsg">
+		insert into jsbswp_sns values(jsbswp_sns_seq.nextval, #{js_owner}, #{js_txt}, sysdate)
+	</insert>
+	
+	<insert id="writeReply" parameterType="com.kimkim.jsbswp2.sns.SNSReply">
+		insert into jsbswp_sns_reply values(jsbswp_sns_reply_seq.nextval, #{jsr_js_no}, #{jsr_owner}, #{jsr_txt}, sysdate)
+	</insert>
+	
+	<!-- 메세지 총 개수 -->
+	<select id="getMsgCount" 
+		parameterType="com.kimkim.jsbswp2.sns.SNSSelector"
+		resultType="java.lang.Integer">
+		select count(*) from jsbswp_sns, jsbswp_member
+		where js_owner = jm_id and js_txt like '%'||#{search}||'%'
+	</select>
+	
+	<select id="getMsgCountByOwner"
+		parameterType="com.kimkim.jsbswp2.member.Member"
+		resultType="java.lang.Integer">
+		select count(*) from jsbswp_sns where js_owner = #{jm_id}
+	</select>
+	
+	<!-- DB에 저장되어잇는 메세지 가져오기 -->
+	<select id="getMsg"
+		parameterType="com.kimkim.jsbswp2.sns.SNSSelector"
+		resultType="com.kimkim.jsbswp2.sns.SNSMsg">
+		select *
+		from (
+			select rownum as rn, js_no, js_owner, js_txt, js_when, jm_photo
+			from (
+					select *
+					from jsbswp_sns, jsbswp_member
+					where js_owner = jm_id and js_txt like '%'||#{search}||'%'
+					order by js_when desc
+					)
+			)
+		where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	
+	<!-- reply 가져오기 -->
+	<select id="getReply"
+		parameterType="com.kimkim.jsbswp2.sns.SNSMsg"
+		resultType="com.kimkim.jsbswp2.sns.SNSReply">
+		select * from jsbswp_sns_reply where jsr_js_no = #{js_no}
+	</select>
+	
+	<update id="updateMsg" parameterType="com.kimkim.jsbswp2.sns.SNSMsg">
+		update JSBSWP_SNS
+		set js_txt=#{js_txt}
+		where js_no=#{js_no}
+	</update>
+	
+	<delete id="deleteMsg"
+		parameterType="com.kimkim.jsbswp2.sns.SNSMsg">
+		delete from jsbswp_sns
+		where js_no = #{js_no}
+	</delete>
+	
+	<delete id="deleteReply"
+		parameterType="com.kimkim.jsbswp2.sns.SNSReply">
+		delete from jsbswp_sns_reply
+		where jsr_no = #{jsr_no}
+	</delete>
+	
+</mapper>
